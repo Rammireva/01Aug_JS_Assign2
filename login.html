@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+    <style type="text/css">
+        body{
+            text-align: center;
+        }
+        button{
+            margin-left: 125px;
+        }
+    </style>
+    <script type="application/javascript">
+
+    </script>
+</head>
+<body>
+<h1>Gallery Site</h1>
+<form>
+    <input type="email" name="email" id="email" placeholder="Email"><br /><br />
+    <input type="password" name="password" id="password" placeholder="Password"><br /><br />
+    <input type="submit" name="submit" formmethod="post" id="submit"><br /><br />
+    <button formaction="2.html">Back</button>
+</form>
+<p></p>
+</body>
+<script type="application/javascript">
+    var sub = document.getElementById('submit');
+    sub.onclick = function(e){
+        e.preventDefault();
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        var chk_data = JSON.parse(localStorage.getItem('user_data'));
+        if(email === chk_data['email'] && password === chk_data['password']){
+            window.location.href = 'success.html';
+        }else{
+            document.getElementsByTagName('p')[0].innerText = 'Email and password is incorrect';
+        }
+    }
+</script>
+</html>
